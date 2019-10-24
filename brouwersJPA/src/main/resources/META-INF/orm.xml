@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+<named-query name='Brouwer.findAll'>
+<query>select b from Brouwer b order by b.naam</query>
+</named-query>
+<named-query name="Brouwer.findByAlphabet">
+	<query>select b from Brouwer b where b.naam like :letterUrl order by b.naam</query>
+</named-query>
+<named-query name="Brouwer.findByNaam">
+	<query>select b from Brouwer b where b.naam like :beginnaam order by b.naam</query>
+</named-query>
+</entity-mappings>
+
+
+
+
+
+	<!-- private static final String BEGIN_SQL = "select id, naam, omzet, straat, huisnr, gemeente, postcode ";
+	private static final String SQL_DELETE = "delete from brouwers where id = ?";
+	private static final String SQL_UPDATE = "update brouwers set naam=:naam, omzet=:omzet , straat=:straat, huisNr=:huisNr,"
+			+ "postcode=:postcode, gemeente=:gemeente where id=:id";
+	private static final String SQL_FIND_ALL = BEGIN_SQL + "from brouwers order by naam";
+	private static final String SQL_FIND_ON_BEGINNAME = BEGIN_SQL
+			+ "from brouwers where naam like ? order by naam";
+	private static final String SQL_FIND_BY_LETTER = BEGIN_SQL
+			+ "from brouwers where naam like ? order by naam";
+	private static final String SQL_READ = BEGIN_SQL + "from brouwers where id = :id";
+	
+	
+	@Override
+	public List<Brouwer> findByAlphabet(char letterURL) {
+		// TODO Auto-generated method stub
+		
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("naam", letterURL);
+		System.out.println("letterul "+letterURL+" parameters "+ parameters.toString()+ " ");//+namedParameterJdbcTemplate.query(SQL_FIND_BY_LETTER, parameters, rowMapper));
+		return jdbcTemplate.query(SQL_FIND_BY_LETTER, rowMapper, Character.toString(letterURL)+'%');
+	
+	Map<String, Object> parameters = new HashMap<>();
+		parameters.put("beginnaam", beginnaam.getBeginnaam()+'%');
+		//return namedParameterJdbcTemplate.query(SQL_FIND_ON_BEGINNAME, parameters, rowMapper);
+		return jdbcTemplate.query(SQL_FIND_ON_BEGINNAME, rowMapper, beginnaam.getBeginnaam()+'%');
+ -->
